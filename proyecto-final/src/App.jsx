@@ -1,24 +1,17 @@
-import { useState } from 'react'
-import { AddCategory } from './components/AddCategory'
-import { ProductsGrid } from './components/ProductsGrid';
-
+import {GridItems} from './components/GridItems'
+import {products} from './data/products';
 import './App.css'
 
 export const App = () => {
 
-  const [ category, setCategory ] = useState('Iphone');
-
-  const onAddCategory = ( newCategory ) => {
-    setCategory( newCategory );
-  }
-
   return (
     <>
-      <h1>PRODUCTOS</h1>
-
-      <AddCategory onNewCategory={ e => onAddCategory( e ) }  />
-
-      <ProductsGrid categoryName={ category } />
+      <div className='bg-dark'>
+        <div className='container'>
+          <h1 className='text-center text-white'>PRODUCTOS</h1>
+          <GridItems products={products}/>
+        </div>
+      </div>
     </>
   )
 }
