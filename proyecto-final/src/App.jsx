@@ -8,7 +8,7 @@ export const App = () => {
     <>
       <div className='bg-dark'>
         <div className='container'>
-          <h1 className='text-center text-white'>PRODUCTOS</h1>
+          <h1 className='text-center text-white p-3'>TECLADOS</h1>
           <GridItems products={products}/>
         </div>
       </div>
