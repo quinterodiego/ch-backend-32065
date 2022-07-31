@@ -30,7 +30,7 @@ class Contenedor {
             const data = await fs.promises.readFile( this.path, 'utf-8' );
             const productos = JSON.parse( data );
             const productoBuscado = productos.filter( p => p.id == id);
-            console.log("Producto: ", productoBuscado);
+            return productoBuscado;
         }
         catch ( error ) {
             console.error( error );
@@ -43,7 +43,8 @@ class Contenedor {
         try {
             const data = await fs.promises.readFile( this.path, 'utf-8' );
             const productos = JSON.parse( data );
-            console.log('Productos: ', productos)
+            // console.log('Productos: ', productos)
+            return productos;
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
@@ -74,24 +75,25 @@ class Contenedor {
     }
 }
 
+module.exports = Contenedor;
 
-const producto1 = {
-    title: 'Teclado Mecanico',
-    price: 12000,
-    thumbnail: 'aaaaaaaaaaaa'
-}
-const producto2 = {
-    title: 'Monitor widescreen',
-    price: 35000,
-    thumbnail: 'bbbbbbbbbbbb'
-}
-const producto3 = {
-    title: 'Mouse Bluetooth',
-    price: 13500,
-    thumbnail: 'cccccccc'
-}
+// const producto1 = {
+//     title: 'Teclado Mecanico',
+//     price: 12000,
+//     thumbnail: 'aaaaaaaaaaaa'
+// }
+// const producto2 = {
+//     title: 'Monitor widescreen',
+//     price: 35000,
+//     thumbnail: 'bbbbbbbbbbbb'
+// }
+// const producto3 = {
+//     title: 'Mouse Bluetooth',
+//     price: 13500,
+//     thumbnail: 'cccccccc'
+// }
 
-const contenedor = new Contenedor('./productos.txt');
+// const contenedor = new Contenedor('./productos.txt');
 
 // contenedor.save(producto1);
 
