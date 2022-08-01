@@ -8,9 +8,9 @@ export const Item = ({product}) => {
             <img src={product.thumbnail} className="card-img-top" alt="..." />
             <div className="card-body bg-secondary text-white">
                 <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">{product.description}</p>
+                {/* <p className="card-text">{product.description}</p> */}
                 <div>
-                    <p className="h4">${product.offers.price}</p>
+                    <p className="h5">${new Intl.NumberFormat('es-ES').format(product.offers.price)}</p>
                     <a href="#" className="btn btn-primary">Comprar</a>
                 </div>
             </div>
