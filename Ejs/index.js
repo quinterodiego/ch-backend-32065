@@ -1,7 +1,5 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const {engine} = require('express-handlebars');
-const routerProductos = require('./Routers/productos.js');
 const Contenedor = require('./Contenedor.js');
 const contenedor = new Contenedor('./productos.txt');
 
@@ -9,27 +7,32 @@ dotenv.config();
 
 const server = express();
 
-server.engine(
-    'hbs',
-    engine({
-        extname: '.hbs',
-        defaultLayout: 'index.hbs',
-        layoutDir: './views/layouts',
-        partialsDir: './views/partials'
-    })
-);
-
-server.set('view engine', 'hbs');
+server.set('view engine', 'ejs');
 server.set('views', './views');
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-// server.use(express.static('public'));
-// server.use('/api/productos', routerProductos);
 
 server.get('/', async (req, res) => {
-    const data = await contenedor.getAll();
-    res.render('main', { productsData: data, productList: true });
+    res.render('index');
+});
+
+server.get('/productos', async (req, res) => {
+    const productos = await contenedor.getAll();
+    const data = { productos };
+    res.render('productsList', data);
+});
+
+server.post('/productos', async (req, res) => {
+    const product = {
+        title: req.body.title,
+        thumbnail: req.body.thumbnail,
+        url: req.body.url,
+        price: req.body.price
+    }
+
+    await contenedor.save(product);
+    res.redirect('/productos');
 });
 
 const PORT = 8080 || process.env.PORT;
