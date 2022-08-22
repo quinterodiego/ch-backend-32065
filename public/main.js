@@ -36,6 +36,7 @@ formProductos.onsubmit = e => {
     }
 
     socket.emit('nuevo-producto', producto);
+    formProductos.reset();
 }
 
 const formMensajes = document.getElementById('form-mensajes');
@@ -47,6 +48,7 @@ formMensajes.onsubmit = e => {
     };
 
     socket.emit('nuevo-mensaje', mensaje);
+    formMensajes.reset();
 }
 
 socket.on('productos', (data) => {

@@ -82,5 +82,33 @@
     "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychron-k3-ultra_slim-hot_swappable-wireless-mechanical-keyboard-mac-windows-ios-android-75percent-layout-white-backlight-aluminum-frame-low-profile-keychron-optical-switch-brown_1800x18001-02c4746f7da3797fdd16523659890465-480-0.png",
     "description": "UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorpora los primeros interruptores ópticos de bajo perfil intercambiables en caliente del mundo para personal...",
     "price": 34388
+  },
+  {
+    "title": "test",
+    "description": "test",
+    "thumbnail": "test",
+    "price": 1,
+    "id": 13
+  },
+  {
+    "title": "test",
+    "description": "test",
+    "thumbnail": "test",
+    "price": 1,
+    "id": 14
+  },
+  {
+    "title": "test",
+    "description": "test",
+    "thumbnail": "test",
+    "price": 3,
+    "id": 15
+  },
+  {
+    "title": "test",
+    "description": "test",
+    "thumbnail": "test",
+    "price": 2,
+    "id": 16
   }
 ]
