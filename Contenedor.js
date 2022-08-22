@@ -8,8 +8,13 @@ class Contenedor {
         try {
             const data = await fs.promises.readFile( this.path, 'utf-8' );
             const productos = JSON.parse( data );
-            const IdsProductos = productos.map(p => p.id);
-            const id = Math.max(...IdsProductos) + 1;
+            let id = 0;
+            if(productos.length > 0) {
+                const IdsProductos = productos.map(p => p.id);
+                id = Math.max(...IdsProductos) + 1;
+            } else {
+                id = 1;
+            }
             const nuevoProducto = { ...producto, id };
             productos.push( nuevoProducto );
             await fs.promises.writeFile( this.path, JSON.stringify( productos, null, 2 ));
