@@ -43,7 +43,6 @@ class Contenedor {
         try {
             const data = await fs.promises.readFile( this.path, 'utf-8' );
             const productos = JSON.parse( data );
-            // console.log('Productos: ', productos)
             return productos;
         } catch ( error ) {
             console.error( error );

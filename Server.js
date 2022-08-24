@@ -7,6 +7,7 @@ const Contenedor = require('./Contenedor.js');
 const moment = require('moment');
 const contenedorProductos = new Contenedor('./productos.txt');
 const contenedorMensajes = new Contenedor('./mensajes.txt');
+const routerProductos = require('./routers/productos');
 
 dotenv.config();
 
@@ -30,9 +31,14 @@ server.set('views', './views');
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('./public'))
+server.use('/', routerProductos);
 
 server.get('/', async (req, res) => {
     res.render('layouts/form');
+});
+
+server.get('/productos', async (req, res) => {
+    res.render('layouts/products');
 });
 
 const PORT = 8080 || process.env.PORT;
