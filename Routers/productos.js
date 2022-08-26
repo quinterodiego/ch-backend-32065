@@ -1,6 +1,6 @@
 const express = require('express');
 const Contenedor = require('../Contenedor.js');
-const contenedor = new Contenedor('./productos.txt');
+const contenedor = new Contenedor('./db/productos.json');
 const isAdmin = require('../middlewares/isAdmin');
 
 const {Router} = express;
@@ -11,10 +11,10 @@ routerProductos.get('/:id?', isAdmin, async (req, res) => {
     const id = req.params.id;
     if (id) {
         const producto = await contenedor.getById(id);
-        (routerProductos) ? res.send({Producto: producto}) : res.send({ error : 'producto no encontrado' });
+        (producto) ? res.send({Producto: producto}) : res.send({ error : 'Producto no encontrado' });
     } else {
-        const data = await contenedor.getAll();
-        res.send({ data });
+        const productos = await contenedor.getAll();
+        res.send(productos);
     }
 })
 

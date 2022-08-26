@@ -31,7 +31,11 @@ class Contenedor {
             const data = await fs.promises.readFile( this.path, 'utf-8' );
             const productos = JSON.parse( data );
             const productoBuscado = productos.filter( p => p.id == id);
-            return productoBuscado;
+            if (productoBuscado.length > 0) {
+                return productoBuscado 
+            } else {
+                return null
+            }
         }
         catch ( error ) {
             console.error( error );

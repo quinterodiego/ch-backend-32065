@@ -6,6 +6,8 @@ const path = require('path');
 const Contenedor = require('./Contenedor.js');
 const contenedorProductos = new Contenedor('./productos.txt');
 const routerProductos = require('./routers/productos');
+const routerCarrito = require('./routers/carrito');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -13,11 +15,13 @@ const server = express();
 const httpServer = new HttpServer(server);
 const io = new IOServer(httpServer);
 
+server.use(cors({origin: "*",}));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('./public'));
 server.use(express.static(path.join(__dirname, 'build')));
 server.use('/productos', routerProductos);
+server.use('/carrito', routerCarrito);
 
 server.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

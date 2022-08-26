@@ -3,8 +3,8 @@ const admin = value.IS_ADMIN;
 
 const isAdmin = (req, res, next) => {
     if (!admin) {     
-        var err = new Error('Not authorized! Go back!');
-        err.status = 401;
+        const err = { error : -1, descripcion: 'Ruta no autorizada' }
+
         return next(err);
     } else {
         return next();
