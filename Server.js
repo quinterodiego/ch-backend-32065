@@ -2,11 +2,9 @@ const express = require('express');
 const {Server: HttpServer} = require('http');
 const {Server: IOServer} = require('socket.io');
 const dotenv = require('dotenv');
-const {engine} = require('express-handlebars');
+const path = require('path');
 const Contenedor = require('./Contenedor.js');
-const moment = require('moment');
 const contenedorProductos = new Contenedor('./productos.txt');
-const contenedorMensajes = new Contenedor('./mensajes.txt');
 const routerProductos = require('./routers/productos');
 
 dotenv.config();
@@ -15,39 +13,21 @@ const server = express();
 const httpServer = new HttpServer(server);
 const io = new IOServer(httpServer);
 
-server.engine(
-    'hbs',
-    engine({
-        extname: '.hbs',
-        defaultLayout: `${__dirname}/views/index`,
-        layoutsDir: `${__dirname}/views/layouts`,
-        partialsDir: `${__dirname}/views/partials`,
-    })
-);
-
-server.set('view engine', 'hbs');
-server.set('views', './views');
-
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(express.static('./public'))
-server.use('/', routerProductos);
+server.use(express.static('./public'));
+server.use(express.static(path.join(__dirname, 'build')));
+server.use('/productos', routerProductos);
 
-server.get('/', async (req, res) => {
-    res.render('layouts/form');
-});
-
-server.get('/productos', async (req, res) => {
-    res.render('layouts/products');
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 const PORT = 8080 || process.env.PORT;
 
 io.on('connection', async socket => {
     console.log('Nuevo cliente conectado');
-    const mensajes = await contenedorMensajes.getAll();
     const productos = await contenedorProductos.getAll();
-    socket.emit('mensajes', mensajes);
     socket.emit('productos', productos);
 
     socket.on('nuevo-producto', async data => {
@@ -55,14 +35,6 @@ io.on('connection', async socket => {
         await contenedorProductos.save(data);
         const productos = await contenedorProductos.getAll();
         io.sockets.emit('productos', productos);
-    });
-
-    socket.on('nuevo-mensaje', async data => {
-        const date = new Date();
-        data.timestamp = moment(date).format('DD/MM/YYYY HH:mm:ss');
-        await contenedorMensajes.save(data);
-        const mensajes = await contenedorMensajes.getAll();
-        io.sockets.emit('mensajes', mensajes);
     });
 });
 

@@ -14,7 +14,7 @@ routerProductos.get('/:id?', isAdmin, async (req, res) => {
         (routerProductos) ? res.send({Producto: producto}) : res.send({ error : 'producto no encontrado' });
     } else {
         const data = await contenedor.getAll();
-        res.send({ Productos: data });
+        res.send({ data });
     }
 })
 
