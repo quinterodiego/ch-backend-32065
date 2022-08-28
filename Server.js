@@ -1,13 +1,13 @@
 const express = require('express');
 const {Server: HttpServer} = require('http');
 const {Server: IOServer} = require('socket.io');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const Contenedor = require('./Contenedor.js');
 const contenedorProductos = new Contenedor('./productos.txt');
 const routerProductos = require('./routers/productos');
 const routerCarrito = require('./routers/carrito');
-const cors = require('cors');
 
 dotenv.config();
 
@@ -20,8 +20,8 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('./public'));
 server.use(express.static(path.join(__dirname, 'build')));
-server.use('/productos', routerProductos);
-server.use('/carrito', routerCarrito);
+server.use('/api/productos', routerProductos);
+server.use('/api/carrito', routerCarrito);
 
 server.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

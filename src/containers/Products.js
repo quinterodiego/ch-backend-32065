@@ -6,11 +6,12 @@ import GridCardProducts from './../components/GridCardProducts'
 const Products = () => {
 
     return (
-        <>
+        <div className='text-center'>
             <NavBar />
-                <GridCardProducts />
+            <h2 className='p-3 m-0'>PRODUCTOS</h2>
+            <GridCardProducts />
             <Footer />
-        </>
+        </div>
     )
 }
 

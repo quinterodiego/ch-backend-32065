@@ -1,16 +1,16 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import Banner from '../components/Banner';
 import Footer from '../components/Footer';
+import FormNewProduct from '../components/FormNewProduct';
 
-const Home = () => {
+const NewProduct = () => {
     return (
         <>
             <NavBar />
-            <Banner />
+            <FormNewProduct />
             <Footer />
         </>
     )
 }
 
-export default Home;
+export default NewProduct;

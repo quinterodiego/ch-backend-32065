@@ -16,7 +16,7 @@ routerProductos.get('/:id?', isAdmin, async (req, res) => {
         const productos = await contenedor.getAll();
         res.send(productos);
     }
-})
+});
 
 routerProductos.post('/', async (req, res) => {
     const producto = req.body;
@@ -24,7 +24,16 @@ routerProductos.post('/', async (req, res) => {
     res.send({
         message: 'Producto agregado'
     })
-})
+});
+
+routerProductos.put('/:id', async (req, res) => {
+    const id = req.params.id;
+    const product = req.body;
+    await contenedor.updateById(id, product);
+    res.send({
+        message: 'Producto actualizado'
+    })
+});
 
 routerProductos.delete('/:id', async (req, res) => {
     const id = req.params.id;
@@ -32,6 +41,7 @@ routerProductos.delete('/:id', async (req, res) => {
     res.send({
         message: 'Producto borrado'
     })
-})
+});
+
 
 module.exports = routerProductos;

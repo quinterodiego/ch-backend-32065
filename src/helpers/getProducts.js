@@ -1,5 +1,5 @@
 export const getProducts = async () => {
-    const url = `http://localhost:8080/productos`;
+    const url = `http://localhost:8080/api/productos`;
     const response = await fetch(url, {
         method: 'GET',
         headers: {
