@@ -1,3 +1,21 @@
+const socket = io.connect();
+
+socket.on('nuevoCliente', (socketId) => {
+    // const carrito = {
+    //     socketId,
+    //     productos: []
+    // }
+    // const response = await fetch('http://localhost:8080/api/carrito', {
+    //     method: 'POST',
+    //     body: JSON.stringify(carrito),
+    //     headers: {
+    //         'Content-Type': 'application/json' 
+    //     }
+    // });
+    // const id = await response.json();
+    console.log(socketId);
+})
+
 const getProducts = async () => {
     const response = await fetch('/api/productos');
     const products = await response.json();
@@ -8,7 +26,7 @@ const getProducts = async () => {
                 <h5 class="card-title">${product.title}</h5>
                 <p class="card-text">${product.description}</p>
                 <div class="text-center">
-                    <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#a${product.id}"><i class="fa-solid fa-pencil"></i></button>
+                    <button class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModal" onclick="openModal(${product.id})"><i class="fa-solid fa-pencil"></i></button>
                     <button class="btn btn-danger m-2" data-id="${product.id}"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
                 <div class="text-center mt-3">
@@ -16,21 +34,55 @@ const getProducts = async () => {
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="a${product.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                        </button>
+                    </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                    <form id="form-product" class="">
+                        <div class="mb-3">
+                            <label for="id" class="form-label">Id</label>
+                            <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp" disabled="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="description" name="description" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="thumbnail" class="form-label">URL Imagen</label>
+                            <input type="text" class="form-control" id="thumbnail" name="thumbnail" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="code" class="form-label">Código</label>
+                            <input type="text" class="form-control" id="code" name="code" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="stock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="stock" name="stock" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="timestamp" class="form-label">Fecha</label>
+                            <input type="text" class="form-control" disabled="true" id="timestamp" name="timestamp" aria-describedby="emailHelp">
+                        </div>
+                    </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="updateProduct()" data-dismiss="modal">Cargar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -67,19 +119,28 @@ const addFormListener = () => {
     }
 }
 
+const openModal = async (id) => {
+    const response = await fetch(`http://localhost:8080/api/productos`);
+    const productos = await response.json();
+    const producto = productos.filter(p => p.id === id);
+    document.querySelector('#form-product #id').value = producto[0].id;
+    document.querySelector('#form-product #title').value = producto[0].title;
+    document.querySelector('#form-product #description').value = producto[0].description;
+    document.querySelector('#form-product #thumbnail').value = producto[0].thumbnail;
+    document.querySelector('#form-product #code').value = producto[0].code;
+    document.querySelector('#form-product #price').value = producto[0].price;
+    document.querySelector('#form-product #stock').value = producto[0].stock;
+    document.querySelector('#form-product #timestamp').value = producto[0].timestamp;
+}
 
-const newCart = async () => {
-    const data = {
-        "code": "0000000000",
-        "stock": 10,
-        "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
-        "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
-        "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
-        "price": 33300,
-        "timestamp": "23/08/2022 20:48:45"
-    }
-    await fetch('http://localhost:8080/api/carrito', {
-        method: 'POST',
+const updateProduct = async () => {
+    const id = parseInt(document.querySelector('#form-product #id').value);
+    const formProduct = document.getElementById('form-product');
+    const formData = new FormData(formProduct);
+    const data = Object.fromEntries(formData.entries());
+    const api = `http://localhost:8080/api/productos/${id}`;
+    await fetch(api, {
+        method: 'PUT',
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json' 

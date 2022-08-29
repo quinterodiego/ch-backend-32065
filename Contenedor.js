@@ -80,10 +80,10 @@ class Contenedor {
 
     updateById = async (id, product) => {
         try {
-            console.log(product)
             const data = await fs.promises.readFile( this.path, 'utf-8' );
             let productos = JSON.parse( data );
             productos = productos.filter( p => p.id != id);
+            product.id = parseInt(id);
             productos.push(product);
             productos.sort(function (a, b) {
                 if (a.id > b.id) {
@@ -95,7 +95,6 @@ class Contenedor {
                 return 0;
             });
             await fs.promises.writeFile( this.path, JSON.stringify(productos, null, 2));
-            console.log(productos);
         } catch (error) {
             console.error( error );
             console.log('Hubo un error en la ejecución');

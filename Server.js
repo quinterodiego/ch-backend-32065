@@ -2,7 +2,6 @@ const express = require('express');
 const {Server: HttpServer} = require('http');
 const {Server: IOServer} = require('socket.io');
 const dotenv = require('dotenv');
-const path = require('path');
 const Contenedor = require('./Contenedor.js');
 const contenedorProductos = new Contenedor('./productos.txt');
 const routerProductos = require('./routers/productos');
@@ -40,17 +39,9 @@ server.get('/cargar', (req, res) => {
 
 const PORT = 8080 || process.env.PORT;
 
-io.on('connection', async socket => {
-    console.log('Nuevo cliente conectado');
-    const productos = await contenedorProductos.getAll();
-    socket.emit('productos', productos);
-
-    socket.on('nuevo-producto', async data => {
-        console.log(data)
-        await contenedorProductos.save(data);
-        const productos = await contenedorProductos.getAll();
-        io.sockets.emit('productos', productos);
-    });
+io.on('connection', socket => {
+    console.log(`Nuevo cliente conectado - ID: ${socket.id}`);
+    socket.emit('nuevoCliente', socket.id);
 });
 
 httpServer.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));

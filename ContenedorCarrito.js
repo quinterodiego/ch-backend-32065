@@ -1,4 +1,5 @@
 const fs = require('fs');
+const moment = require('moment');
 
 class Contenedor {
     constructor ( path ) {
@@ -16,7 +17,9 @@ class Contenedor {
             } else {
                 id = 1;
             }
-            const nuevoCarrito = { ...carrito, id };
+            const date = new Date();
+            const timestamp = moment(date).format('DD/MM/YYYY HH:mm:ss');
+            const nuevoCarrito = { ...carrito, id, timestamp };
             carritos.push( nuevoCarrito );
             await fs.promises.writeFile( this.path, JSON.stringify( carritos, null, 2 ));
             return id;
