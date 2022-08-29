@@ -1,38 +1,212 @@
 [
   {
-    "id": 1,
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
     "timestamp": "23/08/2022 20:48:45",
-    "productos": [
-      {
-        "id": 1,
-        "code": "sjfh88340b7b",
-        "stock": 10,
-        "title": "K10 Hot-Swappable RBG Backlight Gateron G Pro Mechanical BROWN SWITCH",
-        "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/k10-h31-2d569a9d6f039918ae16407066179013-480-0.jpeg",
-        "description": "KEYCHRON K10 Diseñado para maximizar su productividad con el diseño de tamaño completo más popular con teclado numérico. La opción intercambiable en caliente...",
-        "price": 39700,
-        "timestamp": "23/08/2022 20:48:45"
-      },
-      {
-        "id": 2,
-        "code": "sjfh88340b7b",
-        "stock": 10,
-        "title": "K2 V2 Hot Swappable RGB Backlight Gateron G Pro Mechanical BROWN Switch",
-        "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychron-k2-hot-swappable-wireless-mechanical-keyboard-for-mac-windows-gateron-switch-brown-with-type-c-rgb-white-backlight_1800x18001-81f48d6579b89e40bf16565142664377-480-0.jpg",
-        "description": "CONOCÉ EL K2 VERSIÓN 2 HOT SWAPPABLE       K2 es un teclado súper táctil inalámbrico o con cable que le brinda todas las teclas y funciones que necesita mien...",
-        "price": 35100,
-        "timestamp": "23/08/2022 20:48:45"
-      },
-      {
-        "id": 3,
-        "code": "0000000000",
-        "stock": 10,
-        "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
-        "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
-        "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
-        "price": 33300,
-        "timestamp": "23/08/2022 20:48:45"
-      }
-    ]
+    "id": 1
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 2
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 3
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 4
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 5
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 6
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 7
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 8
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 9
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 10
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 11
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 12
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 13
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 14
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 15
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 16
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 17
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 18
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 19
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 20
+  },
+  {
+    "code": "0000000000",
+    "stock": 10,
+    "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45",
+    "id": 21
   }
 ]

@@ -1,4 +1,5 @@
 const fs =require('fs');
+const moment = require('moment');
 class Contenedor {
     constructor ( path ) {
         this.path = path;
@@ -15,7 +16,9 @@ class Contenedor {
             } else {
                 id = 1;
             }
-            const nuevoProducto = { ...producto, id };
+            const date = new Date();
+            const timestamp = moment(date).format('DD/MM/YYYY HH:mm:ss');
+            const nuevoProducto = { ...producto, id, timestamp };
             productos.push( nuevoProducto );
             await fs.promises.writeFile( this.path, JSON.stringify( productos, null, 2 ));
             console.log(`ID: ${id}`);
