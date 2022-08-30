@@ -20,13 +20,14 @@
     "timestamp": "23/08/2022 20:48:45"
   },
   {
+    "id": 3,
+    "code": "0000000000",
+    "stock": 10,
     "title": "K3 Non-Backlight Ultra-Slim Brown Switch",
-    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
     "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychronk3-non-backlit-ultra-slimwirelessmechanicalkeyboard-low-profile-gateron-brown_1800x18001-b044b4c1532166372216581547874923-480-0.jpg",
-    "code": "00000",
-    "price": "33300",
-    "stock": "15",
-    "id": 3
+    "description": "El teclado sin retroiluminación K3 ha incluido teclas para los sistemas operativos Windows y Mac. UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorporar lo...",
+    "price": 33300,
+    "timestamp": "23/08/2022 20:48:45"
   },
   {
     "id": 4,
@@ -95,6 +96,26 @@
     "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychron-k2-non-backlight-version-mechanical-keyboard-red-switch-for-mac-windows_1800x18001-1c41f7137475c8116416486491880799-480-0.jpeg",
     "description": "LA MEJOR COMBINACIÓN DE TECLADO DE TAMAÑO COMPLETO Y TENKEYLESS K2 es un teclado inalámbrico o con cable súper táctil que le brinda todas las teclas y funcio...",
     "price": 25888,
+    "timestamp": "23/08/2022 20:48:45"
+  },
+  {
+    "id": 11,
+    "code": "sjfh88340b7b",
+    "stock": 10,
+    "title": "K2 RGB Backlight Aluminum Frame Gateron G Pro Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/k2-c31-573adeb6117c1e9fa916506566335895-480-0.jpg",
+    "description": "CONOCÉ EL K2 VERSIÓN 2   NOVEDADES DE K2v2 Bluetooth 5.1 Marco inferior inclinado. Luz indicadora de bloqueo de mayúsculas dedicada agregada   LA MEJOR COMBI...",
+    "price": 34350,
+    "timestamp": "23/08/2022 20:48:45"
+  },
+  {
+    "id": 12,
+    "code": "sjfh88340b7b",
+    "stock": 10,
+    "title": "K3 Low Profile RGB Backlight Hot-Swappable Keychron Optical Brown Switch",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/652/371/products/keychron-k3-ultra_slim-hot_swappable-wireless-mechanical-keyboard-mac-windows-ios-android-75percent-layout-white-backlight-aluminum-frame-low-profile-keychron-optical-switch-brown_1800x18001-02c4746f7da3797fdd16523659890465-480-0.png",
+    "description": "UN TECLADO MECÁNICO INALÁMBRICO ULTRA DELGADO Incorpora los primeros interruptores ópticos de bajo perfil intercambiables en caliente del mundo para personal...",
+    "price": 34388,
     "timestamp": "23/08/2022 20:48:45"
   }
 ]

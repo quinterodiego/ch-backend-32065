@@ -1,20 +1,23 @@
 const socket = io.connect();
 
 socket.on('nuevoCliente', (socketId) => {
-    // const carrito = {
-    //     socketId,
-    //     productos: []
-    // }
-    // const response = await fetch('http://localhost:8080/api/carrito', {
-    //     method: 'POST',
-    //     body: JSON.stringify(carrito),
-    //     headers: {
-    //         'Content-Type': 'application/json' 
-    //     }
-    // });
-    // const id = await response.json();
+    const carrito = {
+        socketId,
+        productos: []
+    }
+    createCarrito(carrito);
     console.log(socketId);
-})
+});
+
+const createCarrito = async (carrito) => {
+    await fetch('http://localhost:8080/api/carrito', {
+        method: 'POST',
+        body: JSON.stringify(carrito),
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    });
+}
 
 const getProducts = async () => {
     const response = await fetch('/api/productos');
