@@ -1,26 +1,29 @@
 {
-  "dependencies": {
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "nodemon": "^2.0.19"
-  },
   "name": "ch-backend-32065",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "type": "module",
+  "dependencies": {
+    "express": "^4.18.1",
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
+    "sqlite3": "^5.0.11",
+    "typescript": "^4.8.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quinterodiego/ch-backend-32065.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/quinterodiego/ch-backend-32065/issues"
   },
-  "homepage": "https://github.com/quinterodiego/ch-backend-32065#readme",
-  "description": ""
+  "homepage": "https://github.com/quinterodiego/ch-backend-32065#readme"
 }
