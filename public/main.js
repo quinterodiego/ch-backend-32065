@@ -53,10 +53,8 @@ formMensajes.onsubmit = e => {
 
 socket.on('productos', (data) => {
     renderProductos(data);
-    console.log(data)
 })
 
 socket.on('mensajes', (data) => {
     renderMensajes(data);
-    console.log(data)
 })
