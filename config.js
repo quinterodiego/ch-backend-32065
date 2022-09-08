@@ -2,11 +2,11 @@ export default {
     sqlite3: {
         client: 'sqlite3',
         connection: {
-            filename: `./DB/mensajes.sqlite`
+            filename: `./DB/ecommerce.sqlite`
         },
         useNullAsDefault: true
     },
-    mysql: {
+    mariaDb: {
         client: 'mysql',
         connection: {
             host: 'localhost',
