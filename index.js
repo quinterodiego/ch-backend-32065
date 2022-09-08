@@ -50,7 +50,6 @@ io.on('connection', async socket => {
     socket.emit('productos', productos);
 
     socket.on('nuevo-producto', async data => {
-        console.log(data)
         await contenedorProductos.save(data);
         const productos = await contenedorProductos.getAll();
         io.sockets.emit('productos', productos);
