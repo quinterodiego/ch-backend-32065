@@ -1,76 +1,64 @@
-const fs =require('fs');
+import knex from 'knex'
 class Contenedor {
-    constructor ( path ) {
-        this.path = path;
+    constructor ( config, tabla ) {
+        this.knex = knex(config)
+        this.tabla = tabla
     }
 
     save = async ( producto ) => {
         try {
-            const data = await fs.promises.readFile( this.path, 'utf-8' );
-            const productos = JSON.parse( data );
-            let id = 0;
-            if(productos.length > 0) {
-                const IdsProductos = productos.map(p => p.id);
-                id = Math.max(...IdsProductos) + 1;
-            } else {
-                id = 1;
-            }
-            const nuevoProducto = { ...producto, id };
-            productos.push( nuevoProducto );
-            await fs.promises.writeFile( this.path, JSON.stringify( productos, null, 2 ));
-            console.log(`ID: ${id}`);
+            await knex(this.tabla).insert(producto);
+            console.log('Producto insertado')
         }
         catch ( error ) {
             console.error( error );
-            console.log('Hubo un error en el proceso');
+            console.log('Hubo un error en el proceso save');
+        }
+        finally {
+            knex.destroy();
         }
     }
 
     getById = async ( id ) => {
         try {
-            const data = await fs.promises.readFile( this.path, 'utf-8' );
-            const productos = JSON.parse( data );
-            const productoBuscado = productos.filter( p => p.id == id);
-            return productoBuscado;
+            const producto = await knex.from(this.tabla).select('*').where('id', '=', id);
+            return producto;
         }
         catch ( error ) {
             console.error( error );
-            console.log('Hubo un error en la ejecución');
+            console.log('Hubo un error en el proceso getById');
         }
     }
 
     getAll = async () => {
         try {
-            const data = await fs.promises.readFile( this.path, 'utf-8' );
-            const productos = JSON.parse( data );
-            // console.log('Productos: ', productos)
+            const productos = await knex.from(this.tabla).select('*');
             return productos;
         } catch ( error ) {
             console.error( error );
-            console.log('Hubo un error en la ejecución');
+            console.log('Hubo un error en el proceso getAll');
         }
     }
 
     deleteById = async ( id ) => {
         try {
-            const data = await fs.promises.readFile( this.path, 'utf-8' );
-            const productos = JSON.parse( data );
-            const nuevosProductos = productos.filter( p => p.id !== id);
-            await fs.promises.writeFile( this.path, JSON.stringify(nuevosProductos, null, 2));
+            knex(this.tabla).where('id', '=', id).delete();
+            console.log('Producto eliminado');
         } catch ( error ) {
             console.error( error );
-            console.log('Hubo un error en la ejecución');
+            console.log('Hubo un error en el proceso deleteById');
         }
     }
     
     deleteAll = async () => {
         try {
-            await fs.promises.writeFile(this.path, '[]');
+            knex(this.tabla).delete();
+            console.log('Productos eliminados');
         } catch ( error ) {
             console.error( error );
-            console.log('Hubo un error en la ejecución');
+            console.log('Hubo un error en el proceso deleteAll');
         }
     }
 }
 
-module.exports = Contenedor;
+export default Contenedor;

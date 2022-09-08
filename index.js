@@ -1,12 +1,17 @@
-const express = require('express');
-const {Server: HttpServer} = require('http');
-const {Server: IOServer} = require('socket.io');
-const dotenv = require('dotenv');
-const {engine} = require('express-handlebars');
-const Contenedor = require('./Contenedor.js');
-const moment = require('moment');
-const contenedorProductos = new Contenedor('./productos.txt');
-const contenedorMensajes = new Contenedor('./mensajes.txt');
+import express from 'express';
+import {Server as HttpServer} from 'http';
+import {Server as IOServer} from 'socket.io';
+import dotenv from 'dotenv';
+import {engine} from 'express-handlebars';
+import Contenedor from './contenedor.js';
+import moment from 'moment';
+import config from './config.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const contenedorProductos = new Contenedor(config.mysql, 'tb_productos');
+const contenedorMensajes = new Contenedor(config.sqlite3, 'tb_mensajes');
 
 dotenv.config();
 
