@@ -16,7 +16,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./scripts/crearTablas.js && nodemon index.js"
+    "create:tables": "node ./scripts/crearTablas.js",
+    "start:index": "node ./index.js",
+    "start": "npm run create:tables && npm run start:index"
   },
   "repository": {
     "type": "git",

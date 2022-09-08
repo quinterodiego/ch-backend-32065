@@ -16,7 +16,7 @@ import config from './../config.js';
     } catch (error) {
         console.log(error);
     } finally {
-        mysqlConnection.destroy();
+        mysqlConnection.destroy()
     }
 
     const sqlite3Connection = knex(config.sqlite3);
