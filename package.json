@@ -1,0 +1,26 @@
+{
+  "name": "ch-backend-32065",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "mongoose": "^6.6.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quinterodiego/ch-backend-32065.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quinterodiego/ch-backend-32065/issues"
+  },
+  "homepage": "https://github.com/quinterodiego/ch-backend-32065#readme"
+}
