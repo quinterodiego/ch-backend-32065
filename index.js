@@ -22,13 +22,21 @@ async function CRUD() {
             password: 123123 
         };
 
-        // const userSaveModel = new model.users(user);
-        // const savedUser = await userSaveModel.save();
-        // console.log(savedUser);
+        const userSaveModel = new model.users(user);
+        const savedUser = await userSaveModel.save();
+        console.log(savedUser);
 
         // Read
         const userRead = await model.users.find();
         console.log(userRead);
+
+        // Update
+        const updatedUser = await model.users.updateOne({ nombre: 'Diego' }, { $set: { password: 222222 }});
+        console.log(updatedUser);
+
+        // Delete
+        const deletedUser = await model.users.deleteOne({ nombre: 'Diego' });
+        console.log(deletedUser);
     } catch (error) {
         console.log(error)
     }
