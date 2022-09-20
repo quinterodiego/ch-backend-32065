@@ -1,44 +1,28 @@
 import mongoose from 'mongoose';
-import * as model from './models/usuario.js';
 
+const URL = 'mongodb+srv://d86webs:Maradona005511@cluster0.ugnxru6.mongodb.net/ecommerce?retryWrites=true&w=majority';
 
-const CRUD = async () => {
+const userSchema = new mongoose.Schema({
+    nombre: String,
+    apellido: String,
+    dni: { type: String, unique: true }
+});
+
+const userModel = mongoose.model('usuarios', userSchema);
+
+(async function () {
     try {
         // Conexion a la db
-        const URL = 'mongodb://localhost:27017/ecommerce';
         await mongoose.connect(URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
         console.log('Base de datos conectada');
-        
-        // Create
-        const user = { 
-            nombre: 'Diego', 
-            apellido: 'Quintero', 
-            email: 'd86webs@gmail.com', 
-            usuario: 'd86webs', 
-            password: 123123 
-        };
-        
-        const userSaveModel = new model.users(user);
-        const savedUser = await userSaveModel.save();
-        console.log(savedUser);
-        
-        // Read
-        const userRead = await model.users.find();
-        console.log(userRead);
-        
-        // Update
-        const updatedUser = await model.users.updateOne({ nombre: 'Diego' }, { $set: { password: 222222 }});
-        console.log(updatedUser);
-        
-        // Delete
-        const deletedUser = await model.users.deleteOne({ nombre: 'Diego' });
-        console.log(deletedUser);
-    } catch (error) {
-        console.log(error)
-    }
-}
 
-CRUD();
+        const users = await userModel.find({});
+
+        console.log(users);
+    } catch (error) {
+        console.log(`Error en la conexion a la base de datos ${error}`);
+    }
+})()
