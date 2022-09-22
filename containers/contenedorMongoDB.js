@@ -1,4 +1,7 @@
 import mongoose from 'mongoose'
+import config from './../config.js'
+
+await mongoose.connect(config.mongodb.url, config.mongodb.options)
 
 class Contenedor {
     constructor ( nombreColeccion, esquema ) {
@@ -7,6 +10,7 @@ class Contenedor {
 
     save = async ( producto ) => {
         try {
+            console.log(this.coleccionModel)
             await this.coleccionModel.insertOne(producto);
         }
         catch ( error ) {

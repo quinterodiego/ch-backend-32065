@@ -12,13 +12,6 @@ const __dirname = path.dirname(__filename);
 import mongoose from 'mongoose';
 import config from './config.js';
 
-try {
-    const conn = await mongoose.connect(config.mongodb.url, config.mongodb.options);
-    console.log('Base de datos conectada');
-} catch (error) {
-    console.error(error);
-}
-
 dotenv.config();
 
 

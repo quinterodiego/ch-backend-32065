@@ -9,6 +9,10 @@ class ProductosDaoMongoDB extends Contenedor {
             thumbnail: { type: String, required: true },
         })
     }
+
+    async save (producto) {
+        super.save(producto);
+    }
 }
 
 export default ProductosDaoMongoDB
