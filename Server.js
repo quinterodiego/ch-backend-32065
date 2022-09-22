@@ -3,16 +3,24 @@ import {Server as HttpServer} from 'http';
 import {Server as IOServer} from 'socket.io';
 import dotenv from 'dotenv';
 import Contenedor from './containers/contenedorProducto.js';
-const contenedorProductos = new Contenedor('./productos.txt');
 import routerProductos from './routers/productos.js';
 import routerCarrito from './routers/carrito.js';
-import config from './config.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import mongoose from 'mongoose';
+import config from './config.js';
+
+try {
+    const conn = await mongoose.connect(config.mongodb.url, config.mongodb.options);
+    console.log('Base de datos conectada');
+} catch (error) {
+    console.error(error);
+}
 
 dotenv.config();
+
 
 const server = express();
 const httpServer = new HttpServer(server);
