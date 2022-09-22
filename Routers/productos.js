@@ -5,7 +5,7 @@ import isAdmin from '../middlewares/isAdmin.js';
 import {
     productosDao as productosApi,
     carritosDao as carritosApi
-} from '../daos/index.js'
+} from '../daos/index.js';
 
 const {Router} = express;
 
@@ -45,6 +45,13 @@ routerProductos.delete('/:id', async (req, res) => {
     await productosApi.deleteById(parseInt(id));
     res.send({
         message: 'Producto borrado'
+    })
+});
+
+routerProductos.delete('/', async (req, res) => {
+    await productosApi.deleteAll();
+    res.send({
+        message: 'Productos eliminados'
     })
 });
 

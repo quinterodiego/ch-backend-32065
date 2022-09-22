@@ -1,17 +1,20 @@
-import mongoose from 'mongoose'
-import config from './../config.js'
+import mongoose from 'mongoose';
+import config from './../config.js';
+import mongodb from 'mongodb'
+// import productoSchema from './../models/productos.js';
 
 await mongoose.connect(config.mongodb.url, config.mongodb.options)
 
 class Contenedor {
     constructor ( nombreColeccion, esquema ) {
-        this.coleccionModel = mongoose.model(nombreColeccion, esquema)
+        this.productoSchema = mongoose.Schema(esquema)
+        this.coleccion = mongoose.model(nombreColeccion, this.productoSchema)
     }
 
     save = async ( producto ) => {
         try {
-            console.log(this.coleccionModel)
-            await this.coleccionModel.insertOne(producto);
+            const product = this.coleccion(producto)
+            await product.save(producto);
         }
         catch ( error ) {
             console.error( error );
@@ -21,14 +24,8 @@ class Contenedor {
 
     getById = async ( id ) => {
         try {
-            const data = await fs.promises.readFile( this.path, 'utf-8' );
-            const productos = JSON.parse( data );
-            const productoBuscado = productos.filter( p => p.id == id);
-            if (productoBuscado.length > 0) {
-                return productoBuscado 
-            } else {
-                return null
-            }
+            const producto = await this.coleccion.findById(id);
+            return producto;
         }
         catch ( error ) {
             console.error( error );
@@ -38,8 +35,7 @@ class Contenedor {
 
     getAll = async () => {
         try {
-            const productos = await this.coleccionModel.find();
-            return productos;
+            return await this.coleccion.find();
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
@@ -48,10 +44,9 @@ class Contenedor {
 
     deleteById = async ( id ) => {
         try {
-            const data = await fs.promises.readFile( this.path, 'utf-8' );
-            const productos = JSON.parse( data );
-            const nuevosProductos = productos.filter( p => p.id !== id);
-            await fs.promises.writeFile( this.path, JSON.stringify(nuevosProductos, null, 2));
+            const newID = new mongodb.ObjectID(id)
+            await this.coleccion.deleteOne({ _id: newID });
+            console.log('Productos eliminado')
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
@@ -60,7 +55,8 @@ class Contenedor {
     
     deleteAll = async () => {
         try {
-            await fs.promises.writeFile(this.path, '[]');
+            await this.coleccion.remove();
+            console.log('Todos los productos eliminados')
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
