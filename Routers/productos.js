@@ -1,7 +1,7 @@
-const express = require('express');
-const Contenedor = require('../Contenedor.js');
+import express from 'express';
+import Contenedor from '../containers/contenedorProducto.js';
 const contenedor = new Contenedor('./db/productos.json');
-const isAdmin = require('../middlewares/isAdmin');
+import isAdmin from '../middlewares/isAdmin.js';
 
 const {Router} = express;
 
@@ -44,4 +44,4 @@ routerProductos.delete('/:id', async (req, res) => {
 });
 
 
-module.exports = routerProductos;
+export default routerProductos;

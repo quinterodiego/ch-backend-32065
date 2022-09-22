@@ -1,3 +1,3 @@
-module.exports = {
+export default {
     IS_ADMIN: true
 }

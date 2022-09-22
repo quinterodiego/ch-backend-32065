@@ -1,5 +1,5 @@
-const fs = require('fs');
-const moment = require('moment');
+import fs from 'fs';
+import moment from 'moment';
 
 class Contenedor {
     constructor ( path ) {
@@ -97,4 +97,4 @@ class Contenedor {
     }
 }
 
-module.exports = Contenedor;
+export default Contenedor;

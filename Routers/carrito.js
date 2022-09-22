@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const {Router} = express;
-const isAdmin = require('../middlewares/isAdmin');
-const Contenedor = require('../ContenedorCarrito.js');
+import isAdmin from '../middlewares/isAdmin.js';
+import Contenedor from '../containers/contenedorCarrito.js';
 const contenedor = new Contenedor('./db/carritos.json');
 
 const routerCarrito = Router();
@@ -45,4 +45,4 @@ routerCarrito.delete('/:id/productos/:id_prod', async (req, res) => {
     res.send({message: 'Producto eliminado'});
 });
 
-module.exports = routerCarrito;
+export default routerCarrito;

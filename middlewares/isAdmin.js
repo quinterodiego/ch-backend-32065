@@ -1,4 +1,4 @@
-const value = require('../Globales');
+import value from '../globales.js';
 const admin = value.IS_ADMIN;
 
 const isAdmin = (req, res, next) => {
@@ -10,4 +10,4 @@ const isAdmin = (req, res, next) => {
     }
 }
 
-module.exports = isAdmin;
+export default isAdmin;

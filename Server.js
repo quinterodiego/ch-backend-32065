@@ -1,11 +1,16 @@
-const express = require('express');
-const {Server: HttpServer} = require('http');
-const {Server: IOServer} = require('socket.io');
-const dotenv = require('dotenv');
-const Contenedor = require('./Contenedor.js');
+import express from 'express';
+import {Server as HttpServer} from 'http';
+import {Server as IOServer} from 'socket.io';
+import dotenv from 'dotenv';
+import Contenedor from './containers/contenedorProducto.js';
 const contenedorProductos = new Contenedor('./productos.txt');
-const routerProductos = require('./routers/productos');
-const routerCarrito = require('./routers/carrito');
+import routerProductos from './routers/productos.js';
+import routerCarrito from './routers/carrito.js';
+import config from './config.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -37,7 +42,7 @@ server.get('/cargar', (req, res) => {
     res.render('cargar');
 });
 
-const PORT = 8080 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 
 io.on('connection', socket => {
     console.log(`Nuevo cliente conectado - ID: ${socket.id}`);
