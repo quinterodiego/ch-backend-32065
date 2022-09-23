@@ -44,8 +44,7 @@ class Contenedor {
 
     deleteById = async ( id ) => {
         try {
-            const newID = new mongodb.ObjectID(id)
-            await this.coleccion.deleteOne({ _id: newID });
+            await this.coleccion.deleteOne({ _id: id });
             console.log('Productos eliminado')
         } catch ( error ) {
             console.error( error );

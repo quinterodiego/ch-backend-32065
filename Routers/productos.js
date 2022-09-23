@@ -42,7 +42,7 @@ routerProductos.put('/:id', async (req, res) => {
 
 routerProductos.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    await productosApi.deleteById(parseInt(id));
+    await productosApi.deleteById(id);
     res.send({
         message: 'Producto borrado'
     })
