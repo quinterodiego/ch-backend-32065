@@ -4,6 +4,16 @@ import { carritosDao as carritosApi } from '../daos/index.js';
 
 const routerCarrito = Router();
 
+routerCarrito.get('/:id/productos', async (req, res) => {
+    const id = req.params.id;
+    const carrito = await contenedor.getById(id);
+    if (carrito === null ) {
+        res.send({ error: 'Carrito no encontrado' });
+    } else {
+        res.send(carrito);
+    }
+});
+
 routerCarrito.post('/', async (req, res) => {
     const carrito = req.body;
     const id = await contenedor.save(carrito);
@@ -17,17 +27,6 @@ routerCarrito.delete('/:id', async (req, res) => {
     await contenedor.deleteByCartId(id);
     res.send({message: 'Carrito eliminado'});
 });
-
-routerCarrito.get('/:id/productos', async (req, res) => {
-    const id = req.params.id;
-    const carrito = await contenedor.getById(id);
-    if (carrito === null ) {
-        res.send({ error: 'Carrito no encontrado' });
-    } else {
-        res.send(carrito);
-    }
-});
-
 
 routerCarrito.post('/:id/productos', async (req, res) => {
     const id = req.params.id;

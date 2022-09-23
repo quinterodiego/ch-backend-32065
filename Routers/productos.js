@@ -35,19 +35,20 @@ routerProductos.put('/:id', async (req, res) => {
     })
 });
 
-routerProductos.delete('/:id', async (req, res) => {
-    const id = req.params.id;
-    await productosApi.deleteById(id);
-    res.send({
-        message: 'Producto borrado'
-    })
-});
+routerProductos.delete('/:id?', async (req, res) => {
 
-routerProductos.delete('/', async (req, res) => {
-    await productosApi.deleteAll();
-    res.send({
-        message: 'Productos eliminados'
-    })
+    const id = req.params.id;
+    if (id) {
+        await productosApi.deleteById(id);
+        res.send({
+            message: 'Producto eliminado'
+        })
+    } else {
+        await productosApi.deleteAll();
+        res.send({
+            message: 'Productos eliminados'
+        })
+    }
 });
 
 
