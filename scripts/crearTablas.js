@@ -11,6 +11,9 @@ import config from './../config.js';
             table.string('description').notNullable();
             table.string('thumbnail').notNullable();
             table.integer('price').notNullable();
+            table.integer('stock').notNullable();
+            table.string('code').notNullable();
+            table.dateTime('timestamp').notNullable();
         });
         console.log('Tabla productos creada en mysql');
     } catch (error) {

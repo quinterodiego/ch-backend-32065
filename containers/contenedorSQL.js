@@ -61,11 +61,15 @@ class ContenedorSQL {
 
     updateById = async (id, product) => {
         try {
-            const { title, price, thumbnail } = product;
+            const { title, price, thumbnail, code, stock, description, timestamp } = product;
             await this.knex(this.tabla).where('id', '=', id).update({
                 title,
                 price,
-                thumbnail
+                thumbnail,
+                code,
+                stock,
+                description,
+                timestamp
             })
             console.log('Productos actualizado')
         } catch (error) {

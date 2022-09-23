@@ -84,12 +84,16 @@ class ContenedorFirebase {
 
     updateById = async (id, product) => {
         try {
-            const { title, price, thumbnail } = product;
+            const { title, price, thumbnail, code, description, stock, timestamp } = product;
             const doc = query.doc(id);
             const item = await doc.update({
                 title,
                 price,
-                thumbnail
+                thumbnail,
+                code,
+                stock,
+                description,
+                timestamp
             })
             console.log('Producto actualizado');
         } catch (error) {

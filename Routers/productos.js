@@ -1,6 +1,4 @@
 import express from 'express';
-// import Contenedor from '../containers/contenedorProducto.js';
-// const contenedor = new Contenedor('./db/productos.json');
 import isAdmin from '../middlewares/isAdmin.js';
 import {
     productosDao as productosApi,

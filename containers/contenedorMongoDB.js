@@ -52,7 +52,7 @@ class Contenedor {
     
     deleteAll = async () => {
         try {
-            await this.coleccion.remove();
+            await this.coleccion.deleteMany({});
             console.log('Todos los productos eliminados')
         } catch ( error ) {
             console.error( error );
@@ -62,11 +62,15 @@ class Contenedor {
 
     updateById = async (id, product) => {
         try {
-            const { title, price, thumbnail } = product;
+            const { title, price, thumbnail, code, stock, description, timestamp } = product;
             await this.coleccion.updateOne({ _id: id}, {
-                title: title,
-                price: price,
-                thumbnail: thumbnail
+                title,
+                price,
+                thumbnail,
+                code,
+                stock,
+                description,
+                timestamp
             })
         } catch (error) {
             console.error( error );
