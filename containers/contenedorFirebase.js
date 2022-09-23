@@ -1,18 +1,24 @@
-import mongoose from 'mongoose';
-import config from './../config.js';
+import admin from "firebase-admin"
+import config from './../config.js'
 
-await mongoose.connect(config.mongodb.url, config.mongodb.options)
+admin.initializeApp({
+    credential: admin.credential.cert(config.firebase)
+})
 
-class Contenedor {
-    constructor ( nombreColeccion, esquema ) {
-        this.productoSchema = mongoose.Schema(esquema)
-        this.coleccion = mongoose.model(nombreColeccion, this.productoSchema)
+const db = admin.firestore();
+const query = db.collection('productos');
+
+class ContenedorFirebase {
+
+    constructor(nombreColeccion) {
+        this.coleccion = db.collection(nombreColeccion)
     }
 
     save = async ( producto ) => {
         try {
-            const product = this.coleccion(producto)
-            await product.save(producto);
+            const doc = query.doc();
+            await doc.create(producto);
+            console.log('Producto creado');
         }
         catch ( error ) {
             console.error( error );
@@ -22,7 +28,9 @@ class Contenedor {
 
     getById = async ( id ) => {
         try {
-            const producto = await this.coleccion.findById(id);
+            const doc = query.doc(id);
+            const item = await doc.get();
+            const producto = item.data();
             return producto;
         }
         catch ( error ) {
@@ -33,7 +41,17 @@ class Contenedor {
 
     getAll = async () => {
         try {
-            return await this.coleccion.find();
+            const querySnapshot = await query.get();
+            let docs = querySnapshot.docs;
+
+            const response = docs.map((doc) => ({
+                id: doc.id,
+                title: doc.data().title,
+                price: doc.data().price,
+                thumbnail: doc.data().thumbnail
+            }))
+
+            return response;
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
@@ -63,11 +81,13 @@ class Contenedor {
     updateById = async (id, product) => {
         try {
             const { title, price, thumbnail } = product;
-            await this.coleccion.updateOne({ _id: id}, {
-                title: title,
-                price: price,
-                thumbnail: thumbnail
+            const doc = query.doc(id);
+            const item = await doc.update({
+                title,
+                price,
+                thumbnail
             })
+            console.log('Producto actualizado');
         } catch (error) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
@@ -75,4 +95,4 @@ class Contenedor {
     }
 }
 
-export default Contenedor;
+export default ContenedorFirebase
