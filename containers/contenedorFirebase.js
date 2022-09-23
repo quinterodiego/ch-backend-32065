@@ -42,7 +42,7 @@ class ContenedorFirebase {
     getAll = async () => {
         try {
             const querySnapshot = await query.get();
-            let docs = querySnapshot.docs;
+            const docs = querySnapshot.docs;
 
             const response = docs.map((doc) => ({
                 id: doc.id,
@@ -60,8 +60,9 @@ class ContenedorFirebase {
 
     deleteById = async ( id ) => {
         try {
-            await this.coleccion.deleteOne({ _id: id });
-            console.log('Productos eliminado')
+            const doc = query.doc(id);
+            await doc.delete();
+            console.log('Producto eliminado');
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
@@ -70,8 +71,11 @@ class ContenedorFirebase {
     
     deleteAll = async () => {
         try {
-            await this.coleccion.remove();
-            console.log('Todos los productos eliminados')
+            await query.listDocuments().then(doc => {
+                doc.map((d) => {
+                    d.delete()
+                })
+            })
         } catch ( error ) {
             console.error( error );
             console.log('Hubo un error en la ejecución');
