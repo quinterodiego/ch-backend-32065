@@ -1,15 +1,16 @@
 import express from 'express';
 import {Server as HttpServer} from 'http';
 import {Server as IOServer} from 'socket.io';
-import dotenv from 'dotenv';
-import Contenedor from './containers/contenedorProducto.js';
+
 import routerProductos from './routers/productos.js';
 import routerCarrito from './routers/carrito.js';
+
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+import dotenv from 'dotenv';
 dotenv.config();
 
 const server = express();
