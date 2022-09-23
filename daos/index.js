@@ -12,7 +12,9 @@ switch (process.env.PERS) {
         break
     case 'firebase':
         const { default: ProductosDaoFirebase }  = await import('./productos/productosDaoFirebase.js');
+        const { default: CarritosDaoFirebase }  = await import('./carritos/carritosDaoFirebase.js');
         productosDao = new ProductosDaoFirebase()
+        carritosDao = new CarritosDaoFirebase()
         break
     case 'mongodb':
         const { default: ProductosDaoMongoDB }  = await import('./productos/productosDaoMongoDB.js');

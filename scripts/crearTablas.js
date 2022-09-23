@@ -24,14 +24,14 @@ import config from './../config.js';
 
     const sqlite3Connection = knex(config.sqlite3);
     try {
-        await sqlite3Connection.schema.dropTableIfExists('mensajes');
-        await sqlite3Connection.schema.createTable('mensajes', table => {
+        await sqlite3Connection.schema.dropTableIfExists('carritos');
+        await sqlite3Connection.schema.createTable('carritos', table => {
             table.increments('id').primary();
             table.string('email').notNullable();
             table.string('mensaje').notNullable();
             table.dateTime('timestamp').notNullable();
         });
-        console.log('Tabla mensajes creada en mysql');
+        console.log('Tabla carritos creada en mysql');
     } catch (error) {
         console.log(error);
     } finally {

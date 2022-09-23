@@ -1,9 +1,6 @@
 import express from 'express';
 import isAdmin from '../middlewares/isAdmin.js';
-import {
-    productosDao as productosApi,
-    carritosDao as carritosApi
-} from '../daos/index.js';
+import { productosDao as productosApi } from '../daos/index.js';
 
 const {Router} = express;
 

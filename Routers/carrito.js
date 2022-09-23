@@ -1,8 +1,6 @@
 import express from 'express';
 const {Router} = express;
-import isAdmin from '../middlewares/isAdmin.js';
-import Contenedor from '../containers/contenedorCarrito.js';
-const contenedor = new Contenedor('./db/carritos.json');
+import { carritosDao as carritosApi } from '../daos/index.js';
 
 const routerCarrito = Router();
 
