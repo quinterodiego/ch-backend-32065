@@ -8,7 +8,7 @@ class CarritosDaoSQL {
     }
 
     async save(carrito = {}) {
-        const result = await this.carritos.guardar(carrito)
+        const result = await this.carritos.save(carrito)
         result.productos = []
         return result
     }
