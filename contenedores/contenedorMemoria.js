@@ -1,10 +1,7 @@
-import { promises as fs } from 'fs'
-import config from '../config.js';
-
 class ContenedorArchivo {
 
-    constructor(ruta) {
-        this.ruta = `${config.fileSystem.path}/${ruta}`;
+    constructor() {
+        this.elementos = []
     }
 
     async listar(id) {
@@ -33,4 +30,4 @@ class ContenedorArchivo {
 }
 
 
-export default ContenedorArchivo
+export default ContenedorMemoria

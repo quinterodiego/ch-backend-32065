@@ -1,4 +1,4 @@
-import ContenedorSQL from "../../containers/ContenedorSQL.js"
+import ContenedorSQL from "../../contenedores/ContenedorSQL.js.js"
 import config from '../../config.js'
 
 class ProductosDaoSQLite3 extends ContenedorSQL {
