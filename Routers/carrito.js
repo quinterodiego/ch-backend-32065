@@ -22,17 +22,17 @@ routerCarrito.post('/', async (req, res) => {
     })
 });
 
-routerCarrito.delete('/:id', async (req, res) => {
-    const id = req.params.id;
-    await contenedor.deleteByCartId(id);
-    res.send({message: 'Carrito eliminado'});
-});
-
 routerCarrito.post('/:id/productos', async (req, res) => {
     const id = req.params.id;
     const producto = req.body;
     await contenedor.saveProduct(id, producto)
     res.send({message: 'Producto agregado al carrito'});
+});
+
+routerCarrito.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+    await contenedor.deleteByCartId(id);
+    res.send({message: 'Carrito eliminado'});
 });
 
 routerCarrito.delete('/:id/productos/:id_prod', async (req, res) => {

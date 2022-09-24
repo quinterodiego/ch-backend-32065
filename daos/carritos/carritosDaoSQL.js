@@ -13,7 +13,7 @@ class CarritosDaoSQL {
         return result
     }
 
-    async get(_idCarrito) {
+    async getById(_idCarrito) {
         const idCarrito = Number(_idCarrito)
         await this.carritos.listar(idCarrito)
         const result = {
