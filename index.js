@@ -43,7 +43,7 @@ server.get('/', async (req, res) => {
 const PORT = 8080 || process.env.PORT;
 
 io.on('connection', async socket => {
-    console.log('Nuevo cliente conectado');
+    console.log('Nuevo cliente conectado. ID:', socket.id);
     const mensajes = await contenedorMensajes.getAll();
     const productos = await contenedorProductos.getAll();
     socket.emit('mensajes', mensajes);
