@@ -40,6 +40,10 @@ server.get('/', async (req, res) => {
     res.render('layouts/form');
 });
 
+server.get('/api/productos-test', (req, res) => {
+    res.render('layout/tabla')
+});
+
 const PORT = 8080 || process.env.PORT;
 
 io.on('connection', async socket => {
