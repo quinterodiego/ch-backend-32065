@@ -1,5 +1,5 @@
 const socket = io.connect();
-console.log('aca')
+
 const renderProductos = (data) => {
     const html = data.map((producto) => {
         return (`
