@@ -1,5 +1,5 @@
 const socket = io.connect();
-
+console.log('aca')
 const renderProductos = (data) => {
     const html = data.map((producto) => {
         return (`
@@ -26,35 +26,43 @@ const renderMensajes = (data) => {
 }
 
 const formProductos = document.getElementById('form-productos');
-formProductos.onsubmit = e => {
-    e.preventDefault();
-    const producto = {
-        title: document.getElementById('title').value,
-        description: document.getElementById('description').value,
-        thumbnail: document.getElementById('thumbnail').value,
-        price: parseInt(document.getElementById('price').value),
-    }
+if (formProductos) {
+    formProductos.onsubmit = e => {
+        e.preventDefault();
+        const producto = {
+            title: document.getElementById('title').value,
+            description: document.getElementById('description').value,
+            thumbnail: document.getElementById('thumbnail').value,
+            price: parseInt(document.getElementById('price').value),
+        }
 
-    socket.emit('nuevo-producto', producto);
-    formProductos.reset();
+        socket.emit('nuevo-producto', producto);
+        formProductos.reset();
+    }
 }
 
 const formMensajes = document.getElementById('form-mensajes');
-formMensajes.onsubmit = e => {
-    e.preventDefault();
-    const mensaje = {
-        email: document.getElementById('email').value,
-        mensaje: document.getElementById('mensaje').value,
-    };
 
-    socket.emit('nuevo-mensaje', mensaje);
-    formMensajes.reset();
+if(formMensajes) {
+    formMensajes.onsubmit = e => {
+        e.preventDefault();
+        const mensaje = {
+            email: document.getElementById('email').value,
+            mensaje: document.getElementById('mensaje').value,
+        };
+
+        socket.emit('nuevo-mensaje', mensaje);
+        formMensajes.reset();
+    }
+
+    socket.on('mensajes', (data) => {
+        renderMensajes(data);
+    })
 }
 
 socket.on('productos', (data) => {
     renderProductos(data);
 })
-
-socket.on('mensajes', (data) => {
-    renderMensajes(data);
+socket.on('productosRandom', (data) => {
+    renderProductos(data);
 })

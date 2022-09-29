@@ -12,6 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const contenedorProductos = new Contenedor(config.mysql, 'tb_productos');
 const contenedorMensajes = new Contenedor(config.sqlite3, 'tb_mensajes');
+import {generarProductos} from './utils/generarProductos.js';
 
 dotenv.config();
 
@@ -34,14 +35,14 @@ server.set('views', './views');
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(express.static('./public'))
+server.use(express.static(__dirname + '/public'));
 
 server.get('/', async (req, res) => {
     res.render('layouts/form');
 });
 
-server.get('/api/productos-test', (req, res) => {
-    res.render('layout/tabla')
+server.get('/api/productos-test', async (req, res) => {
+    res.render('layouts/tabla')
 });
 
 const PORT = 8080 || process.env.PORT;
@@ -52,6 +53,10 @@ io.on('connection', async socket => {
     const productos = await contenedorProductos.getAll();
     socket.emit('mensajes', mensajes);
     socket.emit('productos', productos);
+
+    const productosRandom = generarProductos(5);
+
+    socket.emit('productosRandom', productosRandom);
 
     socket.on('nuevo-producto', async data => {
         await contenedorProductos.save(data);
