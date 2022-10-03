@@ -4,6 +4,7 @@ import {Server as IOServer} from 'socket.io';
 import dotenv from 'dotenv';
 import {engine} from 'express-handlebars';
 import Contenedor from './contenedor.js';
+import ContenedorMensajes from './contenedorMensajes.js';
 import moment from 'moment';
 import config from './config.js'
 import path from 'path';
@@ -11,7 +12,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const contenedorProductos = new Contenedor(config.mysql, 'tb_productos');
-const contenedorMensajes = new Contenedor(config.sqlite3, 'tb_mensajes');
+const contenedorMensajes = new ContenedorMensajes('./db/mensajes.json');
 import {generarProductos} from './utils/generarProductos.js';
 
 dotenv.config();

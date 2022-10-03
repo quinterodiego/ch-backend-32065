@@ -1,5 +1,15 @@
 const socket = io.connect();
 
+const schema = normalizr.schema;
+const user = new schema.Entity('autores', {}, { idAttribute: 'email' });
+const mensajes = new schema.Entity('mensaje', {
+    author: user
+});
+
+const schemaMensajes = new schema.Entity('mensajes', {
+mensajes: [mensajes]
+})
+
 const renderProductos = (data) => {
     const html = data.map((producto) => {
         return (`
@@ -15,10 +25,11 @@ const renderProductos = (data) => {
 }
 
 const renderMensajes = (data) => {
-    const html = data.map((mensaje) => {
+    const { mensajes } = data;
+    const html = mensajes.map((mensaje) => {
         return (`
             <div>
-                <strong class="text-primary">${mensaje.email}</strong> [<span class="text-danger">${mensaje.timestamp}</span>]: <em class="text-success">${mensaje.mensaje}</em>
+                <strong class="text-primary">${mensaje.author.email}</strong> [<span class="text-danger">${mensaje.timestamp}</span>]: <em class="text-success">${mensaje.mensaje}</em>&nbsp;&nbsp;<img src=${mensaje.author.avatar}/>
             </div>
         `)
     }).join('');
@@ -47,22 +58,51 @@ if(formMensajes) {
     formMensajes.onsubmit = e => {
         e.preventDefault();
         const mensaje = {
-            email: document.getElementById('email').value,
+            author: {
+                email: document.getElementById('email').value,
+                name: document.getElementById('name').value,
+                lastName: document.getElementById('lastName').value,
+                age: document.getElementById('age').value,
+                alias: document.getElementById('alias').value,
+                avatar: document.getElementById('avatar').value,
+            },
             mensaje: document.getElementById('mensaje').value,
         };
-
         socket.emit('nuevo-mensaje', mensaje);
         formMensajes.reset();
     }
 
     socket.on('mensajes', (data) => {
-        renderMensajes(data);
+        const denormalizedEmpresa = normalizr.denormalize(
+            data.result, schemaMensajes, data.entities
+        );
+        renderMensajes(denormalizedEmpresa);
     })
 }
 
 socket.on('productos', (data) => {
     renderProductos(data);
-})
+});
+
 socket.on('productosRandom', (data) => {
     renderProductos(data);
-})
+});
+
+socket.on('mensajes', (data) => {
+    const denormalizedData = normalizr.denormalize(
+        data.result, schemaMensajes, data.entities
+    );
+    renderMensajes(denormalizedData);
+    
+    const lon = JSON.stringify(denormalizedData).length
+    const loo = JSON.stringify(data).length
+
+    const diferencia = loo - lon;
+    const porcentaje = (diferencia / loo) * 100;
+    // console.log(JSON.stringify(denormalizedData))
+    // console.log(lon);
+    // console.log(JSON.stringify(data))
+    // console.log(loo);      
+    console.log(`Porcentaje de compresión ${porcentaje.toFixed(2)}%`);
+    document.getElementById('centro-mensajes').innerHTML = `Centro de mensajes (Compresión: ${porcentaje.toFixed(2)}%)`;
+});
